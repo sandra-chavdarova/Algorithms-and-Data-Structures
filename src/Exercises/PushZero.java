@@ -1,3 +1,24 @@
+/*
+За дадена низа од случајни броеви кои се внесуваат од стандарден влез,
+да се направи преместување на сите нули на почеток на низата.
+На стандарден излез да се испечати трансформираната низа.
+
+/
+
+For a given array of random numbers given from standard input,
+perform a shift of all zeros at the beginning of the sequence.
+Print the transformed array to standard output.
+
+Input:
+12
+1 9 8 4 0 0 2 7 0 6 0 9
+
+Result:
+Transformiranata niza e:
+0 0 0 0 1 9 8 4 2 7 6 9
+*/
+
+
 package Exercises;
 
 import java.util.Scanner;
