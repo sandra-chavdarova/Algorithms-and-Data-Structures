@@ -28,7 +28,7 @@ Result:
 {3,4,5}
 */
 
-package Labs;
+package Labs.Lab01;
 
 import java.util.Scanner;
 
@@ -114,7 +114,7 @@ class Array {
 
 // add public before class Numbers
 
-class Labs.Numbers {
+class Labs.Lab01.Numbers {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
