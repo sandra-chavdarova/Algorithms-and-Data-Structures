@@ -245,3 +245,5 @@ public class Average {
         System.out.println(result);
     }
 }
+
+// 5 5 5 5
