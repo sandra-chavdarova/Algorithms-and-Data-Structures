@@ -31,19 +31,25 @@ import java.util.Scanner;
 
 public class LargestNumber {
     void bubbleSort(int[] digits, int n) {
-        boolean swapped = true;
-        while (swapped) {
-            swapped = false;
-            for (int i = 0; i < n - 1; i++) {
-                if (digits[i] < digits[i + 1]) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (digits[i] < digits[j]) {
                     int temp = digits[i];
-                    digits[i] = digits[i + 1];
-                    digits[i + 1] = temp;
-                    swapped = true;
+                    digits[i] = digits[j];
+                    digits[j] = temp;
                 }
             }
         }
     }
+
+//    int number(int[] digits, int n) {
+//        bubbleSort(digits, n);
+//        int result = 0;
+//        for (int i = 0; i < n; i++) {
+//            result = result * 10 + digits[i];
+//        }
+//        return result;
+//    }
 
     public static void main(String[] args) {
         LargestNumber l = new LargestNumber();
