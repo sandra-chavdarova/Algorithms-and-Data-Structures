@@ -37,7 +37,7 @@ public class BinarySearch {
         } else if (array[mid] < key) {
             return binarySearch(array, mid + 1, end, key);
         } else {
-            return binarySearch(array, 0, mid - 1, key);
+            return binarySearch(array, start, mid - 1, key);
         }
     }
 
