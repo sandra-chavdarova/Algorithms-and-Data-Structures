@@ -28,7 +28,7 @@ Input	    Output	                            Explanation
 32            2             32 - 4*4 = 16;  16 - 4*4 = 0. (we subtracted 2 times)
 */
 
-package Labs.Lab04;
+package Labs.Lab04_DivideAndConquer_DynamicProgramming;
 
 import java.util.Scanner;
 import java.util.Arrays;

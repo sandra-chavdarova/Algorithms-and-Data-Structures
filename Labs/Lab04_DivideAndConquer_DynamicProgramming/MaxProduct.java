@@ -22,7 +22,7 @@ Result:
 1742400000
 */
 
-package Labs.Lab04;
+package Labs.Lab04_DivideAndConquer_DynamicProgramming;
 
 public class MaxProduct {
     static int max(int a, int b, int c) {

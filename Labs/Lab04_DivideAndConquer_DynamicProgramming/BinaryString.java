@@ -1,4 +1,4 @@
-package Labs.Lab04;
+package Labs.Lab04_DivideAndConquer_DynamicProgramming;
 
 import java.util.Scanner;
 

@@ -32,7 +32,7 @@ Sky->Blue->Cloud
 Cloud
 */
 
-package Labs.Lab01;
+package Labs.Lab01_SLL;
 
 import java.util.Scanner;
 

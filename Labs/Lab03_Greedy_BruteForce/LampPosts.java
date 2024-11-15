@@ -35,7 +35,7 @@ Input 2:
 Result 2:
 2
 */
-package Labs.Lab03;
+package Labs.Lab03_Greedy_BruteForce;
 
 import java.util.Scanner;
 

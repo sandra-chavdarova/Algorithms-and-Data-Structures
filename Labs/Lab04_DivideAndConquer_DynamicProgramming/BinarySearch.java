@@ -22,7 +22,7 @@ Then in the next line are the array elements.
 Output: The position of the number we are searching, or "Ne postoi" if no such number exists in the array.
 */
 
-package Labs.Lab04;
+package Labs.Lab04_DivideAndConquer_DynamicProgramming;
 
 import java.util.Scanner;
 

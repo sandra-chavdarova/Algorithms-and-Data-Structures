@@ -7,7 +7,7 @@ then in the next N lines are the arrival and departures minutes for each of the 
 Output: the minimum number of needed platforms to accommodate the trains
 */
 
-package Labs.Lab03;
+package Labs.Lab03_Greedy_BruteForce;
 
 import java.util.Scanner;
 

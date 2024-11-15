@@ -28,7 +28,7 @@ Result:
 {3,4,5}
 */
 
-package Labs.Lab01;
+package Labs.Lab01_SLL;
 
 import java.util.Scanner;
 

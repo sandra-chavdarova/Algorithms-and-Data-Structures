@@ -28,7 +28,7 @@ Result:
 4<->5<->1<->2<->3
 */
 
-package Labs.Lab02;
+package Labs.Lab02_DLL;
 
 import java.util.Scanner;
 

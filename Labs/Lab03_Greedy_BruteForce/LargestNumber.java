@@ -25,7 +25,7 @@ Result 2:
 000000
 */
 
-package Labs.Lab03;
+package Labs.Lab03_Greedy_BruteForce;
 
 import java.util.Scanner;
 
