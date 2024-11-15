@@ -31,7 +31,6 @@ Cloud
 Result:
 Sky->Blue->Cloud
 Sky->Blue->Cloud->Target
-
 */
 
 package Labs.Lab01_SLL;
