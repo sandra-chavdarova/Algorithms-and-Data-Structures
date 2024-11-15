@@ -226,8 +226,8 @@ class DLL<E> {
     }
 }
 
-public class ReorderElements {
-    public static void rotate(DLL<Integer> list, int k) {
+public class ShiftToRight {
+    public static void shift(DLL<Integer> list, int k) {
         for (int i = 0; i < k; i++) {
             list.insertFirst(list.getLast().element);
             list.deleteLast();
@@ -244,7 +244,7 @@ public class ReorderElements {
         }
         int k = scanner.nextInt();
         System.out.println(list.toString());
-        rotate(list, k);
+        shift(list, k);
         System.out.println(list.toString());
     }
 }
