@@ -15,6 +15,17 @@ Input: the first number in the input is the number of trains N,
 then in the next N lines are the arrival and departures minutes for each of the trains.
 
 Output: the minimum number of needed platforms to accommodate the trains
+
+Input:
+5
+1 2
+1 2
+5 10
+11 14
+15 20
+
+Result:
+2
 */
 
 package Labs.Lab03_Greedy_BruteForce;
