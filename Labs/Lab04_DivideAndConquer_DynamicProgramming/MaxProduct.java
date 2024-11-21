@@ -54,7 +54,7 @@ public class MaxProduct {
     static int maxProduct(int[] arr) {
         int n = arr.length;
         int[] products = new int[n];
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             products[i] = arr[i];
         }
         for (int i = 1; i < n; i++) {
