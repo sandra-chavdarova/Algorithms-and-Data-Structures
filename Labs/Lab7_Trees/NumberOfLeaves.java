@@ -242,22 +242,18 @@ class SLLTree<E> implements Tree<E> {
     }
 
     int countLeavesRecursive(SLLNode<E> node) {
-        if (node == null) {
-            return 0;
-        }
-
         if (childCount(node) == 0) {
             return 1;
         }
 
-        int leafCount = 0;
+        int counter = 0;
         SLLNode<E> child = node.firstChild;
 
         while (child != null) {
-            leafCount += countLeavesRecursive(child);
+            counter += countLeavesRecursive(child);
             child = child.sibling;
         }
-        return leafCount;
+        return counter;
     }
 }
 
