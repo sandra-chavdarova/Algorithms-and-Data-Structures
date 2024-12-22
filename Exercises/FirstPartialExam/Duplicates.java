@@ -36,7 +36,7 @@ Result:
 1->2->2->5->7->9->12->2->4->1->2->8
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 

@@ -19,7 +19,7 @@ Transformiranata niza e:
 */
 
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 

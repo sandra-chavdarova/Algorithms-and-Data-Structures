@@ -103,7 +103,7 @@ SALES CHAMPION: Liam
 */
 
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 
@@ -188,8 +188,7 @@ class SalesPerson {
 }
 
 
-public class Main {
-
+public class SalesChampion {
     public static SalesPerson salesChampion(SalesPerson[] arr) {
         int index = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -222,24 +221,22 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        int n;
-        Scanner input = new Scanner(System.in);
-        n = input.nextInt();
-        input.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
         SalesPerson[] arr = new SalesPerson[n];
         for (int i = 0; i < n; i++) {
-            String name = input.nextLine();
+            String name = scanner.nextLine();
             QuarterlySales[] quarterlySales = new QuarterlySales[4];
             for (int j = 0; j < 4; j++) {
-                int sales = input.nextInt();
+                int sales = scanner.nextInt();
                 int[] income = new int[sales];
                 for (int k = 0; k < sales; k++) {
-                    income[k] = input.nextInt();
+                    income[k] = scanner.nextInt();
                 }
                 quarterlySales[j] = new QuarterlySales(sales, income, j);
             }
-            input.nextLine();
+            scanner.nextLine();
 
             arr[i] = new SalesPerson(name, quarterlySales);
         }

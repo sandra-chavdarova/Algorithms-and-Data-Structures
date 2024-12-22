@@ -19,7 +19,7 @@ Result:
 70
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.io.BufferedReader;
 import java.io.IOException;

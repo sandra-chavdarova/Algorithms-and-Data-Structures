@@ -33,7 +33,7 @@ Result:
 1300
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 

@@ -15,7 +15,7 @@ Result:
 5
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 
@@ -31,7 +31,7 @@ public class LongestDecreasingSubsequence {
             for (int j = 0; j < i; j++) {
                 if (a[j] > a[i] && result[j] + 1 > result[i]) {
                     result[i] = result[j] + 1;
-                    max=Math.max(max, result[i]);
+                    max = Math.max(max, result[i]);
                 }
             }
         }

@@ -21,7 +21,7 @@ owt
 eerht
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 

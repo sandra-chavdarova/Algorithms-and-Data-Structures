@@ -45,7 +45,7 @@ Output:
 4200
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.Scanner;
 

@@ -29,7 +29,7 @@ Result:
 1
 */
 
-package Exercises;
+package Exercises.FirstPartialExam;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
