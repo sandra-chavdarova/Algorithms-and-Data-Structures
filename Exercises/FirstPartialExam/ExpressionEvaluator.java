@@ -14,7 +14,6 @@ Note: The operation of multiplying has precedence before the operation of adding
 Input:
 2+2*2*2*2*2*2+2*2
 
-
 Result:
 70
 */
