@@ -1,70 +1,92 @@
 /*
-На влез во оваа задача ќе ви бидат дадени редови како следниот формат:
-Ime Prezime budzhet ip_adresa vreme grad cena
-Пример
-Jovan Todorov 1000 10.73.112.200 15:30 Bitola 760
-Кое што значи дека лицето со Име и Презиме Jovan Todorov,
-има буџет од 1000 денари, има IP адреса со мрежа 10.73.112 и домаќин (host number) 200,
-и се приклучил во 15:30 часот за да купи билет кон Bitola кој што чини 760 денари.
+Во оваа задача ќе работите со два објекти „Вработени“ и „Проекти“.
+Еден вработен е дефиниран со 2 вредности: Име (String), Возраст (цел број).
+Еден проект е дефиниран со 2 вредности: Работно Време (цел број), Плата по час (цел број).
+За даден проект вкупната плата се пресметува како производ на работното време и платата по час.
+Вработените ќе добиваат понудени проекти, и треба да го изберат проектот од кој ќе добијат
+најголема плата (доколку имаат избор од повеќе проекти со иста најголема плата, тогаш првиот таков).
 
-Ќе ви бидат дадени N такви редови, по што ќе следи празен ред па уште M редови од истиот формат, кои ќе ги користиме за тестирање.
+Ваша задача ќе биде да им помогнете на вработените со тоа што ќе искористите
+CBHT со 10 кофички каде што за секој вработен ќе ја чувате неговата најдобра понуда.
+За хеш функција користете производ од возраста на вработениот и ASCII вредноста
+на првата буква од името на вработениот.
 
-Од редот за тестирање треба да го извадите градот и потоа да го одговорите следното прашање со овој град:
+Влез:
+Во првиот ред е даден еден цел број N кој го означува бројот на понуди.
+Потоа во следните N редови се дадени по 4 вредности, информациите за понудите,
+името и возраста на вработениот и работното време и платата од час на проектот соодветно:
 
-Од сите N лица на влез, кои купуваат билет за до истиот град,
-колку од нив се вклучиле подоцна од 11:59;
-и од овие, кој од нив се вклучил најрано?
+N
+name_1 age_1 time_1 rate_1
+name_2 age_2 time_2 rate_2
+...
+name_N age_N time_N rate_N
 
-(погледнете го тест примерот!)
-(доколку има повеќе со исто најмало време тогаш кој е првиот таков во влезот?) (секогаш ќе постои барем еден таков)
+Излез:
+Отпечатете ја целата табела (со готовиот toString метод).
+Секој вработен да се печати во формат "<name, age>" каде на местото на name и age
+треба да стои името и возраста на вработениот соодветно (имплементирајте го ова во toString метод).
+Секој проект да се печати во формат "<time, rate>" каде на местото на time и rate
+треба да стои работното време и платата по час на проектот соодветно (имплементирајте го ова во toString метод).
 
-Ова ќе треба да го направите за сите M редови за тестирање!
-Препорака, користете OBHT и/или CBHT.
------------------------------------------------------------------------------------------------
-At the input of this task you will be given rows with the following format:
-First_name Last_name budget ip_address time city price
-Example
-Jovan Todorov 1000 10.73.112.200 15:30 Bitola 760
-Which means that the person with First name and Last name Jovan Todorov,
-has a budget of 1000 denars, has an IP address with network 10.73.112 and host number 200,
-and joined at 15:30 to buy a ticked to Bitola which costs 760 denars.
+-----------------------------------
 
-You will be given N such rows, followed by an empty row and M more rows of the same format, which we will use for testing.
+In this task, you will work with two objects "Employees" and "Projects".
+An employee is defined with 2 values: Name (String), Age (integer).
+A project is defined with 2 values: Working Time (integer), Hourly Salary (integer).
+For a given project, the total salary is calculated as the product of the working time and the hourly salary.
+Employees will be offered projects, and they should choose the project
+from which they will receive the highest salary (if they have a choice of multiple projects
+with the same highest salary, then the first one).
 
-From the test row you need to extract the city and then answer the following question with this city:
+Your task will be to help employees by using CBHT with 10 buckets where
+for each employee you will store their best offer.
+For the hash function, use the product of the employee's age
+and the ASCII value of the first letter of the employee's name.
 
-Of the N people at the input, from the ones who buy a ticket to the same city,
-how many of them joined later than 11:59;
-and of these, which one joined the earliest?
+Input:
+The first line contains an integer N that indicates the number of offers.
+Then, in the next N rows, 4 values ​​are given, the information about the offers,
+the name and age of the employee and the working hours and hourly wage of the project respectively:
 
-(if there are more with the same minimum time then which one is the first one in the entry?) (there will always be at least one)
+N
+name_1 age_1 time_1 rate_1
+name_2 age_2 time_2 rate_2
+...
+name_N age_N time_N rate_N
 
-You will need to do this for all M rows for testing!
-Recommendation, use OBHT and/or CBHT.
+Output:
+Print the entire table (with the ready-made toString method).
+Each employee should be printed in the format "<name, age>" where in place of name and age should be
+the name and age of the employee respectively (implement this in the toString method).
+Each project should be printed in the format "<time, rate>" where in place of time and rate should be
+the working hours and hourly wage of the project respectively (implement this in the toString method).
 
 Input:
 5
-Jovan Todorov    1000    10.73.112.200     16:30   Bitola     760
-Mitko Janev      4350    132.28.112.200    12:15   Krusevo    4000
-Sara Dobreva     2700    10.73.60.29       14:35   Bitola     2500
-Mence Trajanova  4000    10.73.112.112     11:25   Bitola     4200
-Viktor Jovev     2200    10.73.112.79      15:15   Strumica   1800
-
-1
-Jovan Todorov    1000    10.73.112.200     16:30   Bitola     760
+Martin 25 3 100
+Jana 26 4 90
+Martin 25 5 120
+Jana 26 2 95
+Nenad 20 6 80
 
 Result:
-City: Bitola has the following number of customers:
-2
-The user who logged on earliest after noon from that city is:
-Sara Dobreva with salary 2700 from address 10.73.60.29 who logged in at 14:35
+0:<<Nenad, 20>,<6, 80>>
+1:
+2:
+3:
+4:<<Jana, 26>,<4, 90>>
+5:<<Martin, 25>,<5, 120>>
+6:
+7:
+8:
+9:
 */
 
 package Labs.Lab6_HashTables;
 
+import java.util.Objects;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
 
 class SLLNode<E> {
     protected E element;
@@ -311,98 +333,81 @@ class CBHT<K extends Comparable<K>, E> {
     }
 }
 
-class Person {
+class Person implements Comparable<Person> {
     String name;
-    String surname;
-    Integer budget;
-    String ip_address;
-    String time;
-    Integer hour;
-    Integer minutes;
-    String city;
-    Integer price;
+    Integer age;
 
-    public Person(String name, String surname, Integer budget, String ip_address, String time, Integer hour, Integer minutes, String city, Integer price) {
+    public Person(String name, Integer age) {
         this.name = name;
-        this.surname = surname;
-        this.budget = budget;
-        this.ip_address = ip_address;
-        this.time = time;
-        this.hour = hour;
-        this.minutes = minutes;
-        this.city = city;
-        this.price = price;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "<" + name + ", " + age + ">";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(age, person.age);
+    }
+
+    @Override
+    public int hashCode() {
+        return age * (name.charAt(0));
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return 0;
     }
 }
 
-public class EarliestCustomer {
+class Project {
+    Integer time;
+    Integer fee;
+
+    public Project(Integer time, Integer fee) {
+        this.time = time;
+        this.fee = fee;
+    }
+
+    public int totalFee() {
+        return time * fee;
+    }
+
+    @Override
+    public String toString() {
+        return "<" + time + ", " + fee + ">";
+    }
+}
+
+public class BestProjectOffer {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        scanner.nextLine();
-        CBHT<String, Person> tableCities = new CBHT<>(n);
-        CBHT<String, Integer> earliest = new CBHT<>(n);
+        CBHT<Person, Project> table = new CBHT<Person, Project>(10);
         for (int i = 0; i < n; i++) {
-
             String name = scanner.next();
-            String surname = scanner.next();
-            Integer budget = scanner.nextInt();
-            String ip_address = scanner.next();
-            String time = scanner.next();
-
-            String[] split = time.split(":");
-
-            Integer hour = parseInt(split[0]);
-            Integer minutes = parseInt(split[1]);
-            String city = scanner.next();
-            Integer price = scanner.nextInt();
-
-            scanner.nextLine();
-
-            Person person = new Person(name, surname, budget, ip_address, time, hour, minutes, city, price);
-            if (tableCities.search(person.city) == null) {
-                if (person.hour >= 12) {
-                    tableCities.insert(person.city, person);
-                    earliest.insert(person.city, 1);
-                }
+            Integer age = scanner.nextInt();
+            Person person = new Person(name, age);
+            Integer time = scanner.nextInt();
+            Integer fee = scanner.nextInt();
+            Project project = new Project(time, fee);
+            if (table.search(person) == null) {
+                table.insert(person, project);
             } else {
-                if (person.hour >= 12) {
-                    Person existingPerson = tableCities.search(person.city).element.value;
-                    earliest.insert(person.city, earliest.search(person.city).element.value + 1);
-                    if (existingPerson.hour > person.hour) {
-                        tableCities.insert(person.city, person);
-
-                    } else if (existingPerson.hour.equals(person.hour) && existingPerson.minutes > person.minutes) {
-                        tableCities.insert(person.city, person);
-                    }
+                SLLNode<MapEntry<Person, Project>> newOffer = table.search(person);
+                Project best = newOffer.element.value;
+                if (project.totalFee() > best.totalFee()) {
+                    table.insert(person, project);
                 }
             }
         }
-
-        int m = scanner.nextInt();
-        for (int i = 0; i < m; i++) {
-            scanner.nextLine();
-            String name = scanner.next();
-            String surname = scanner.next();
-            Integer budget = scanner.nextInt();
-            String ip_address = scanner.next();
-            String time = scanner.next();
-
-            String[] split = time.split(":");
-
-            Integer hour = parseInt(split[0]);
-            Integer minutes = parseInt(split[1]);
-            String city = scanner.next();
-            Integer price = scanner.nextInt();
-
-            System.out.println("City: " + city + " has the following number of customers:");
-            Integer total = earliest.search(city).element.value;
-            System.out.println(total);
-            System.out.println("The user who logged on earliest after noon from that city is:");
-            Person result = tableCities.search(city).element.value;
-
-            System.out.println(result.name + " " + result.surname + " with salary " + result.budget + " from address " + result.ip_address + " who logged in at " + result.time);
-            System.out.println();
-        }
+        System.out.println(table);
     }
 }
+
