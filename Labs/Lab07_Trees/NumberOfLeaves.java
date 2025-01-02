@@ -50,7 +50,7 @@ Result:
 7
 */
 
-package Labs.Lab7_Trees;
+package Labs.Lab07_Trees;
 
 import java.util.*;
 
