@@ -410,4 +410,3 @@ public class BestProjectOffer {
         System.out.println(table);
     }
 }
-
