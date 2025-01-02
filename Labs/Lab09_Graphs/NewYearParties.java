@@ -43,7 +43,7 @@ Result:
 (Explanation: Alice and Bob are one group, Charlie and Diana a second group, and Eve and Frank a third group)
 */
 
-package Labs.Lab9_Graphs;
+package Labs.Lab09_Graphs;
 
 import java.util.*;
 
