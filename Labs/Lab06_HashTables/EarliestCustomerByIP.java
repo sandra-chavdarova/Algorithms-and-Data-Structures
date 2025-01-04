@@ -29,8 +29,8 @@ First_name Last_name budget ip_address time city price
 Example
 Jovan Todorov 1000 10.73.112.200 15:30 Bitola 760
 Which means that the person with First name and Last name Jovan Todorov, has a budget of 1000 denars,
- has an IP address with network 10.73.112 and host number 200,
- and joined at 15:30 to buy a ticked to Bitola which costs 760 denars.
+has an IP address with network 10.73.112 and host number 200,
+and joined at 15:30 to buy a ticked to Bitola which costs 760 denars.
 
 You will be given N such rows, followed by an empty row and M more rows of the same format, which we will use for testing.
 
