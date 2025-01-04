@@ -67,7 +67,7 @@ package Labs.Lab06_HashTables;
 
 import java.util.Scanner;
 
-public class EnoughBudget {
+public class EnoughBudgetByCity {
     static class Person {
         String name;
         String surname;

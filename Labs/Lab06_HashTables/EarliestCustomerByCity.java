@@ -335,7 +335,7 @@ class Person {
     }
 }
 
-public class EarliestCustomer {
+public class EarliestCustomerByCity {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -395,6 +395,7 @@ public class EarliestCustomer {
             String city = scanner.next();
             Integer price = scanner.nextInt();
 
+            Person person = new Person(name, surname, budget, ip_address, time, hour, minutes, city, price);
             System.out.println("City: " + city + " has the following number of customers:");
             Integer total = earliest.search(city).element.value;
             System.out.println(total);
