@@ -103,7 +103,9 @@ public class EnoughBudgetByCity {
             String city = scanner.next();
             int price = scanner.nextInt();
             scanner.nextLine();
+
             Person person = new Person(name, surname, budget, IPaddress, time, city, price);
+
             if (table.search(city) == null) {
                 if (price <= budget) {
                     table.insert(city, person);
@@ -119,6 +121,7 @@ public class EnoughBudgetByCity {
                 }
             }
         }
+
         int m = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < m; i++) {
@@ -130,7 +133,9 @@ public class EnoughBudgetByCity {
             String city = scanner.next();
             int price = scanner.nextInt();
             scanner.nextLine();
+
             Person person = new Person(name, surname, budget, IPaddress, time, city, price);
+
             System.out.println("City: " + city + " has the following number of customers:");
             System.out.println(customers.search(city).element.value);
             System.out.println("The user who spent the most purchasing for that city is:");
