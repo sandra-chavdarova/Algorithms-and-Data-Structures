@@ -54,7 +54,7 @@ package Labs.Lab10_GraphsAlgorithms;
 import java.util.*;
 
 class AdjacencyListGraph<T> {
-    private Map<T, Map<T, Integer>> adjacencyList;
+    private Map<T, Set<T>> adjacencyList;
 
     public AdjacencyListGraph() {
         this.adjacencyList = new HashMap<>();
@@ -63,14 +63,14 @@ class AdjacencyListGraph<T> {
     // Add a vertex to the graph
     public void addVertex(T vertex) {
         if (!adjacencyList.containsKey(vertex)) {
-            adjacencyList.put(vertex, new HashMap<>());
+            adjacencyList.put(vertex, new HashSet<>());
         }
     }
 
     // Remove a vertex from the graph
     public void removeVertex(T vertex) {
         // Remove the vertex from all adjacency lists
-        for (Map<T, Integer> neighbors : adjacencyList.values()) {
+        for (Set<T> neighbors : adjacencyList.values()) {
             neighbors.remove(vertex);
         }
         // Remove the vertex's own entry in the adjacency list
@@ -78,12 +78,11 @@ class AdjacencyListGraph<T> {
     }
 
     // Add an edge to the graph
-    public void addEdge(T source, T destination, int weight) {
+    public void addEdge(T source, T destination) {
         addVertex(source);
         addVertex(destination);
 
-        adjacencyList.get(source).put(destination, weight);
-//        adjacencyList.get(destination).put(source, weight); // for undirected graph
+        adjacencyList.get(source).add(destination);
     }
 
     // Remove an edge from the graph
@@ -91,14 +90,11 @@ class AdjacencyListGraph<T> {
         if (adjacencyList.containsKey(source)) {
             adjacencyList.get(source).remove(destination);
         }
-        if (adjacencyList.containsKey(destination)) {
-            adjacencyList.get(destination).remove(source); // for undirected graph
-        }
     }
 
     // Get all neighbors of a vertex
-    public Map<T, Integer> getNeighbors(T vertex) {
-        return adjacencyList.getOrDefault(vertex, new HashMap<>());
+    public Set<T> getNeighbors(T vertex) {
+        return adjacencyList.getOrDefault(vertex, new HashSet<>());
     }
 
     public void DFS(T startVertex) {
@@ -112,7 +108,7 @@ class AdjacencyListGraph<T> {
         System.out.print(vertex + " ");
 
         // Recur for all the vertices adjacent to this vertex
-        for (T neighbor : getNeighbors(vertex).keySet()) {
+        for (T neighbor : getNeighbors(vertex)) {
             if (!visited.contains(neighbor)) {
                 DFSUtil(neighbor, visited);
             }
@@ -130,7 +126,7 @@ class AdjacencyListGraph<T> {
             if (!visited.contains(vertex)) {
                 visited.add(vertex);
                 System.out.print(vertex + " ");
-                for (T neighbor : getNeighbors(vertex).keySet()) {
+                for (T neighbor : getNeighbors(vertex)) {
                     if (!visited.contains(neighbor)) {
                         stack.push(neighbor);
                     }
@@ -149,7 +145,7 @@ class AdjacencyListGraph<T> {
             T vertex = stack.peek();
 
             boolean f = true;
-            for (T neighbor : getNeighbors(vertex).keySet()) {
+            for (T neighbor : getNeighbors(vertex)) {
                 if (!visited.contains(neighbor)) {
                     stack.push(neighbor);
                     visited.add(neighbor);
@@ -185,7 +181,7 @@ class AdjacencyListGraph<T> {
             T vertex = queue.poll();
             System.out.print(vertex + " ");
 
-            for (T neighbor : getNeighbors(vertex).keySet()) {
+            for (T neighbor : getNeighbors(vertex)) {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
                     queue.add(neighbor);
@@ -194,112 +190,81 @@ class AdjacencyListGraph<T> {
         }
     }
 
-    public Map<T, Integer> shortestPath(T startVertex) {
-        Map<T, Integer> distances = new HashMap<>();
-        PriorityQueue<T> queue = new PriorityQueue<>(Comparator.comparingInt(distances::get));
-        Set<T> explored = new HashSet<>();
-
-        // Initialize distances
-        for (T vertex : adjacencyList.keySet()) {
-            distances.put(vertex, Integer.MAX_VALUE);
+    // DFS utility function used for topological sorting
+    private void topologicalSortUtil(T vertex, Set<T> visited, Stack<T> stack) {
+        visited.add(vertex);
+        for (T neighbor : getNeighbors(vertex)) {
+            if (!visited.contains(neighbor)) {
+                topologicalSortUtil(neighbor, visited, stack);
+            }
         }
-        distances.put(startVertex, 0);
+        stack.push(vertex);
+    }
 
-        queue.add(startVertex);
+    public List<T> topologicalSort() {
+        Stack<T> stack = new Stack<>();
+        Set<T> visited = new HashSet<>();
 
-        while (!queue.isEmpty()) {
-            T current = queue.poll();
-            explored.add(current);
-
-            for (Map.Entry<T, Integer> neighborEntry : adjacencyList.get(current).entrySet()) {
-                T neighbor = neighborEntry.getKey();
-                int newDist = distances.get(current) + neighborEntry.getValue();
-
-                if (newDist < distances.get(neighbor)) {
-                    distances.put(neighbor, newDist);
-
-                    // Update priority queue
-                    if (!explored.contains(neighbor)) {
-                        queue.add(neighbor);
-                    }
-                }
+        for (T vertex : adjacencyList.keySet()) {
+            if (!visited.contains(vertex)) {
+                topologicalSortUtil(vertex, visited, stack);
             }
         }
 
-        return distances;
+        List<T> order = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            order.add(stack.pop());
+        }
+        return order;
     }
 
     @Override
     public String toString() {
         String ret = new String();
-        for (Map.Entry<T, Map<T, Integer>> vertex : adjacencyList.entrySet())
+        for (Map.Entry<T, Set<T>> vertex : adjacencyList.entrySet())
             ret += vertex.getKey() + ": " + vertex.getValue() + "\n";
         return ret;
-    }
-
-    int calculate(Map<String, Integer> compileTimes) {
-        Map<T, Integer> isDependant = new HashMap<>();
-        Map<T, Integer> maxCompileTime = new HashMap<>();
-        Queue<T> queue = new LinkedList<>();
-        int total = 0;
-
-        for (T module : adjacencyList.keySet()) {
-            isDependant.put(module, 0);
-            maxCompileTime.put(module, compileTimes.get(module));
-        }
-
-        for (T module : adjacencyList.keySet()) {
-            for (T neighbor : getNeighbors(module).keySet()) {
-                if (isDependant.containsKey(neighbor)) {
-                    isDependant.put(neighbor, isDependant.get(neighbor) + 1);
-                }
-            }
-        }
-
-        for (T module : adjacencyList.keySet()) {
-            if (isDependant.get(module) == 0) {
-                queue.offer(module);
-            }
-        }
-
-        while (!queue.isEmpty()) {
-            T currentModule = queue.poll();
-            int currentMaxTime = maxCompileTime.get(currentModule);
-            for (T neighbor : getNeighbors(currentModule).keySet()) {
-                isDependant.put(neighbor, isDependant.get(neighbor) - 1);
-                maxCompileTime.put(neighbor, Math.max(maxCompileTime.get(neighbor), currentMaxTime + compileTimes.get(neighbor)));
-                if (isDependant.get(neighbor) == 0) {
-                    queue.offer(neighbor);
-                }
-            }
-            total = Math.max(total, currentMaxTime);
-        }
-        return total;
     }
 }
 
 public class MinimumCompilingTime {
+    public static int compileTime(AdjacencyListGraph<String> graph, String startVertex, Map<String, Integer> days) {
+        int numberOfDays = days.get(startVertex);
+        int max = 0;
+        for (String vertex : graph.getNeighbors(startVertex)) {
+            if (max < days.get(vertex))
+                max = days.get(vertex);
+        }
+        return numberOfDays + max;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        AdjacencyListGraph<String> graph = new AdjacencyListGraph<>();
-        Map<String, Integer> compileTimes = new HashMap<>();
         int n = scanner.nextInt();
         scanner.nextLine();
+        AdjacencyListGraph<String> graph = new AdjacencyListGraph<>();
+        Map<String, Integer> compileTimes = new HashMap<>();
         for (int i = 0; i < n; i++) {
             String vertex = scanner.next();
-            int compileTime = scanner.nextInt();
-            compileTimes.put(vertex, compileTime);
+            int weight = scanner.nextInt();
             graph.addVertex(vertex);
+            compileTimes.put(vertex, weight);
             scanner.nextLine();
         }
         int m = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < m; i++) {
-            String first = scanner.next();
-            String second = scanner.next();
-            graph.addEdge(first, second, 0);
-            scanner.nextLine();
+            graph.addEdge(scanner.next(), scanner.next());
         }
-        System.out.println(graph.calculate(compileTimes));
+        int result = 0;
+        List<String> topologicalSort = graph.topologicalSort();
+//        System.out.println(topologicalSort);
+        for (int i = topologicalSort.size() - 1; i >= 0; i--) {
+//            System.out.print(days.get(topologicalSort.get(i)) + " ");
+            compileTimes.put(topologicalSort.get(i), compileTime(graph, topologicalSort.get(i), days));
+            if (compileTimes.get(topologicalSort.get(i)) > result)
+                result = compileTimes.get(topologicalSort.get(i));
+        }
+        System.out.println(result);
     }
 }
