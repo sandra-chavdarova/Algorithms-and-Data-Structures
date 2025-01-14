@@ -293,6 +293,6 @@ public class AveragePollution {
         }
         String result = scanner.next();
         float average = averagePollutions.search(result).element.value / frequencies.search(result).element.value;
-        System.out.println(average);
+        System.out.println((float) Math.round(average * 100) / 100);
     }
 }
