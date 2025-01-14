@@ -316,7 +316,7 @@ public class RenovatingHighways {
         System.out.println(counter + " " + sum);
         for (Edge e : result) {
             if (e.getWeight() != 0)
-                System.out.println(graph.getVertex(e.getFrom()) + " to " + graph.getVertex(e.getTo()) + " weight: " + e.getWeight());
+                System.out.println(graph.getVertex(e.getFrom()) + " " + graph.getVertex(e.getTo()));
         }
     }
 }
