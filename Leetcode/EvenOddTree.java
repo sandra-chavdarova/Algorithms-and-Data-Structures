@@ -60,12 +60,12 @@ public class EvenOddTree {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(11);
-//        root.left = new TreeNode(18);
-//        root.right = new TreeNode(14);
-//        root.left.left = new TreeNode(3);
-//        root.left.right = new TreeNode(7);
-//        root.left.right.left = new TreeNode(18);
-//        root.left.right.left.left = new TreeNode(6);
+        root.left = new TreeNode(18);
+        root.right = new TreeNode(14);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(7);
+        root.left.right.left = new TreeNode(18);
+        root.left.right.left.left = new TreeNode(6);
         System.out.println(isEvenOddTree(root));
     }
 }
