@@ -25,6 +25,7 @@ Daleron Glavobolka 90
 Lineks Bolki_vo_stomak 150
 Spazmeks Bolki_vo_stomak 150
 Loratadin Alergija 150
+Glavobolka
 
 Result:
 Analgin
