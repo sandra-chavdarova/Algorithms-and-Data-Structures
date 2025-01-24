@@ -32,7 +32,7 @@ public class AdjacencyListGraph<T> {
         addVertex(destination);
 
         adjacencyList.get(source).put(destination, weight);
-        adjacencyList.get(destination).put(source, weight); // for undirected graph
+//        adjacencyList.get(destination).put(source, weight); // for undirected graph
     }
 
     // Remove an edge from the graph
