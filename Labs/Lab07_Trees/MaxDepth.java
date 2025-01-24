@@ -60,6 +60,10 @@ package Labs.Lab07_Trees;
 
 import java.util.Scanner;
 
+import DataStructures.Stack;
+import DataStructures.BNode;
+import DataStructures.BTree;
+
 public class MaxDepth {
     public static BNode<String> findNode(BNode<String> node, String value) {
         if (node == null)

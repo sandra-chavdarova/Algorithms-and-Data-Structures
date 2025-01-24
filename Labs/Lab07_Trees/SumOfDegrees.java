@@ -59,6 +59,10 @@ package Labs.Lab07_Trees;
 
 import java.util.Scanner;
 
+import DataStructures.Stack;
+import DataStructures.BNode;
+import DataStructures.BTree;
+
 public class SumOfDegrees {
     public static BNode<String> findNode(BNode<String> node, String value) {
         if (node == null)

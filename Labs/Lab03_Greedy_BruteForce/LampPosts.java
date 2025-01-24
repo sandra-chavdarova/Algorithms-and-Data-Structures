@@ -52,10 +52,10 @@ public class LampPosts {
         int lamps = 0;
         int i = 0;
         while (i < N) {
-            int lampPosition = positions[i];
-            while (i < N && positions[i] <= lampPosition + 2) {
-                i++;
-            }
+            int lampPosition = positions[i]+2;
+//            while (i < N && positions[i] <= lampPosition + 2) {
+//                i++;
+//            }
             lamps++;
 
             int coveredPosition = positions[i - 1] + 2;

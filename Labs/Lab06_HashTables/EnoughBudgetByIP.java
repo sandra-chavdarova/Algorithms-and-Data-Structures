@@ -70,29 +70,31 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-class Person {
-    String name;
-    String surname;
-    int budget;
-    String IPaddress;
-    String time;
-    String city;
-    int price;
-    String network;
-
-    public Person(String name, String surname, int budget, String IPaddress, String time, String city, int price, String network) {
-        this.name = name;
-        this.surname = surname;
-        this.budget = budget;
-        this.IPaddress = IPaddress;
-        this.time = time;
-        this.city = city;
-        this.price = price;
-        this.network = network;
-    }
-}
+import DataStructures.CBHT;
 
 public class EnoughBudgetByIP {
+    static class Person {
+        String name;
+        String surname;
+        int budget;
+        String IPaddress;
+        String time;
+        String city;
+        int price;
+        String network;
+
+        public Person(String name, String surname, int budget, String IPaddress, String time, String city, int price, String network) {
+            this.name = name;
+            this.surname = surname;
+            this.budget = budget;
+            this.IPaddress = IPaddress;
+            this.time = time;
+            this.city = city;
+            this.price = price;
+            this.network = network;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();

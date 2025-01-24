@@ -67,6 +67,8 @@ package Labs.Lab06_HashTables;
 
 import java.util.Scanner;
 
+import DataStructures.CBHT;
+
 public class EnoughBudgetByCity {
     static class Person {
         String name;
