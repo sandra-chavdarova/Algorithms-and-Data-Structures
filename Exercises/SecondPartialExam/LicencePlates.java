@@ -51,6 +51,10 @@ package Exercises.SecondPartialExam;
 import java.util.*;
 import java.text.ParseException;
 
+import DataStructures.MapEntry;
+import DataStructures.CBHT;
+import DataStructures.SLLNode;
+
 public class LicencePlates {
     static class Driver {
         String name;

@@ -51,6 +51,10 @@ package Exercises.SecondPartialExam;
 
 import java.util.Scanner;
 
+import DataStructures.MapEntry;
+import DataStructures.CBHT;
+import DataStructures.SLLNode;
+
 public class KumanovoDialect {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
