@@ -8,29 +8,6 @@ Link: https://leetcode.com/problems/balanced-binary-tree/description/?envType=pr
 
 package Leetcode;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-
-        this.val = val;
-
-        this.left = left;
-
-        this.right = right;
-
-    }
-}
-
 public class BalancedBinaryTree {
     public int height(TreeNode node) {
         if (node == null)
