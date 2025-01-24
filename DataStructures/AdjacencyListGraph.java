@@ -283,4 +283,8 @@ public class AdjacencyListGraph<T> {
         }
         return false;
     }
+
+    public Map<T, Set<T>> getAdjacencyList() {
+        return adjacencyList;
+    }
 }
