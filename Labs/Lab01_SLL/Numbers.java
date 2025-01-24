@@ -72,9 +72,6 @@ public class Numbers {
     }
 }
 
-
-
-
 /*
 Second solution
 
@@ -114,7 +111,7 @@ class Array {
 
 // add public before class Numbers
 
-class Labs.Lab01.Numbers {
+class Numbers {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
