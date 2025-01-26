@@ -79,20 +79,34 @@ import java.util.*;
 
 import DataStructures.LinkedQueue;
 
+class Student {
+    String name;
+    int submitDocuments;
+    int index;
+    int receiveDocuments;
+
+    public Student(String name, int submitDocuments, int index, int receiveDocuments) {
+        this.name = name;
+        this.submitDocuments = submitDocuments;
+        this.index = index;
+        this.receiveDocuments = receiveDocuments;
+    }
+}
+
 public class StudentAdministrationParallel {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         scanner.nextLine();
-        LinkedQueue<Student1> submitDocuments = new LinkedQueue<>();
-        LinkedQueue<Student1> index = new LinkedQueue<>();
-        LinkedQueue<Student1> receiveDocuments = new LinkedQueue<>();
+        LinkedQueue<Student> submitDocuments = new LinkedQueue<>();
+        LinkedQueue<Student> index = new LinkedQueue<>();
+        LinkedQueue<Student> receiveDocuments = new LinkedQueue<>();
         for (int i = 0; i < n; i++) {
             String name = scanner.nextLine();
             int activity1 = scanner.nextInt();
             int activity2 = scanner.nextInt();
             int activity3 = scanner.nextInt();
-            Student1 student = new Student1(name, activity1, activity2, activity3);
+            Student student = new Student(name, activity1, activity2, activity3);
             if (activity1 == 1)
                 submitDocuments.enqueue(student);
             else if (activity2 == 1)
@@ -104,7 +118,7 @@ public class StudentAdministrationParallel {
         while (!submitDocuments.isEmpty() || !index.isEmpty() || !receiveDocuments.isEmpty()) {
             for (int i = 0; i < 2; i++) {
                 if (!submitDocuments.isEmpty()) {
-                    Student1 student = submitDocuments.dequeue();
+                    Student student = submitDocuments.dequeue();
                     student.submitDocuments = 0;
                     if (student.index == 1)
                         index.enqueue(student);
@@ -116,7 +130,7 @@ public class StudentAdministrationParallel {
             }
             for (int i = 0; i < 3; i++) {
                 if (!index.isEmpty()) {
-                    Student1 student = index.dequeue();
+                    Student student = index.dequeue();
                     student.index = 0;
                     if (student.receiveDocuments == 1)
                         receiveDocuments.enqueue(student);
@@ -125,7 +139,7 @@ public class StudentAdministrationParallel {
                 }
             }
             if (!receiveDocuments.isEmpty()) {
-                Student1 student = receiveDocuments.dequeue();
+                Student student = receiveDocuments.dequeue();
                 student.receiveDocuments = 0;
                 System.out.println(student.name);
             }
