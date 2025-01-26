@@ -81,7 +81,6 @@ Result:
 package Labs.Lab05_StackAndQueue;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import DataStructures.Queue;
@@ -99,7 +98,7 @@ class Person {
     }
 }
 
-public class Library {
+public class LibraryParallel {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
