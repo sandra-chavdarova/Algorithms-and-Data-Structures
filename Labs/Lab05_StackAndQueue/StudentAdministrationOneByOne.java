@@ -3,10 +3,9 @@
 Студентот може да приложи документи, да побара да си го земе индексот или пак да побара да си ги земе документите од средно.
 Кога студентската служба ќе започне со работа се услужуваат студенти од сите три типа паралелно,
 но исто така сите три шалтера не одат со иста брзина па услужувањето е со следниот редослед
-(два студента што ги приложуваат документите, па три студенти што сакаат да си го земат индексот, па еден студент што сака да си ги земе документите од средно).
-
-Доколку студент чека ред за повеќе услуги кај студентската служба,
-тој чека ред првин во редицата за приложување на документи,
+(еден студент што приложува документи, па еден студент што сака да си го земе индексот,
+па еден студент што сака да си ги земе документите од средно).
+Доколку студент чека ред за повеќе услуги кај студентската служба, тој чека ред првин во редицата за приложување на документи,
 потоа во редицата за земање на индекс и на крај во редицата за земање на документи од средно.
 
 Влез: Во првата линија е даден број на студенти кои имаат дојдено за да бидат услужени од студентската служба.
@@ -31,10 +30,12 @@ The student can submit documents, request to receive his/her index card,
 or request to receive his/her high school documents.
 When the student services start working, students of all three types are served in parallel,
 but it is important to mention that all 3 counters go with different speeds, so the serving of students is in this order
-(two students submitting documents, then three students who want to receive their index card,
+(one student submitting documents, then one student who want to receive their index card,
 then one student who wants to receive his/her high school documents).
+
 If a student is waiting in line for more than one service at the student services,
-he/she waits in line first for submitting documents, then in line for receiving his/her index card,
+he/she waits in line first for submitting documents,
+then in line for receiving his/her index card,
 and finally in line for receiving his/her high school documents.
 
 Input: The first line contains the number of students who have come to be served by the student service.
@@ -51,6 +52,28 @@ Ivan Ivanovski
 means that student Ivan Ivanovski aims to submit documents and get his index.
 
 Output: Print the order of students in the order they complete all services from the student administration.
+
+
+Input:
+3
+Иван Ивановски
+1
+0
+1
+Марија Маркова
+0
+1
+1
+Петар Петров
+1
+1
+0
+
+
+Result:
+Иван Ивановски
+Петар Петров
+Марија Маркова
 */
 
 package Labs.Lab05_StackAndQueue;
@@ -73,7 +96,7 @@ class Student {
     }
 }
 
-public class StudentAdministrationParallel {
+public class StudentAdministrationOneByOne {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -96,27 +119,23 @@ public class StudentAdministrationParallel {
             scanner.nextLine();
         }
         while (!submitDocuments.isEmpty() || !index.isEmpty() || !receiveDocuments.isEmpty()) {
-            for (int i = 0; i < 2; i++) {
-                if (!submitDocuments.isEmpty()) {
-                    Student student = submitDocuments.dequeue();
-                    student.submitDocuments = 0;
-                    if (student.index == 1)
-                        index.enqueue(student);
-                    else if (student.receiveDocuments == 1)
-                        receiveDocuments.enqueue(student);
-                    else
-                        System.out.println(student.name);
-                }
+            if (!submitDocuments.isEmpty()) {
+                Student student = submitDocuments.dequeue();
+                student.submitDocuments = 0;
+                if (student.index == 1)
+                    index.enqueue(student);
+                else if (student.receiveDocuments == 1)
+                    receiveDocuments.enqueue(student);
+                else
+                    System.out.println(student.name);
             }
-            for (int i = 0; i < 3; i++) {
-                if (!index.isEmpty()) {
-                    Student student = index.dequeue();
-                    student.index = 0;
-                    if (student.receiveDocuments == 1)
-                        receiveDocuments.enqueue(student);
-                    else
-                        System.out.println(student.name);
-                }
+            if (!index.isEmpty()) {
+                Student student = index.dequeue();
+                student.index = 0;
+                if (student.receiveDocuments == 1)
+                    receiveDocuments.enqueue(student);
+                else
+                    System.out.println(student.name);
             }
             if (!receiveDocuments.isEmpty()) {
                 Student student = receiveDocuments.dequeue();
