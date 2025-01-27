@@ -47,9 +47,6 @@ Input:
 Result:
 18->40->6->4->45
 98->87->32->88->28->82->33
-
-*Output-от оригинално треба да е без стрелки.*
-*Овде не е користена посебна класа за решението, но логиката е таа.*
 */
 
 package Exercises.FirstPartialExam;
@@ -75,6 +72,31 @@ public class TarotShuffling {
         }
     }
 
+    static void tarotCards(SLL<Card> firstDeck, SLL<Card> secondDeck) {
+        SLLNode<Card> middle = firstDeck.getFirst();
+        while (middle != null) {
+            if (middle.succ == null)
+                break;
+            middle = middle.succ;
+        }
+        firstDeck.delete(middle);
+        Card middleCard = middle.element;
+
+        Card c = firstDeck.deleteFirst();
+        secondDeck.insertLast(c);
+        c = secondDeck.deleteFirst();
+        firstDeck.insertLast(c);
+
+        SLLNode<Card> temp = secondDeck.getFirst();
+        int size = secondDeck.size() / 2;
+        for (int i = 0; i < size; i++) {
+            if (i == size - 1) {
+                secondDeck.insertAfter(middleCard, temp);
+            }
+            temp = temp.succ;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         SLL<Card> firstDeck = new SLL<>();
@@ -91,25 +113,7 @@ public class TarotShuffling {
             Card card = new Card(id, rank);
             secondDeck.insertLast(card);
         }
-        SLLNode<Card> middle = firstDeck.getFirst();
-        while (middle != null) {
-            if (middle.succ == null)
-                break;
-            middle = middle.succ;
-        }
-        firstDeck.delete(middle);
-        Card middleCard = middle.element;
-        Card c = firstDeck.deleteFirst();
-        secondDeck.insertLast(c);
-        c = secondDeck.deleteFirst();
-        firstDeck.insertLast(c);
-        SLLNode<Card> temp = secondDeck.getFirst();
-        for (int i = 0; i < secondDeck.size() / 2; i++) {
-            if (i == secondDeck.size() / 2 - 1) {
-                secondDeck.insertAfter(middleCard, temp);
-            }
-            temp = temp.succ;
-        }
+        tarotCards(firstDeck, secondDeck);
         System.out.println(firstDeck.toString());
         System.out.println(secondDeck.toString());
     }
