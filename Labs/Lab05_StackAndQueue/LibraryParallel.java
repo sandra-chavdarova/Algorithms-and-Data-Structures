@@ -86,26 +86,26 @@ import java.util.Scanner;
 import DataStructures.Queue;
 import DataStructures.ArrayQueue;
 
-class Person {
-    String name;
-    int science, SciFi, history;
-
-    public Person(String name, int science, int scifi, int history) {
-        this.name = name;
-        this.science = science;
-        this.SciFi = scifi;
-        this.history = history;
-    }
-}
-
 public class LibraryParallel {
+    static class Person {
+        String name;
+        int science, SciFi, history;
+
+        public Person(String name, int science, int scifi, int history) {
+            this.name = name;
+            this.science = science;
+            this.SciFi = scifi;
+            this.history = history;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         scanner.nextLine();
-        Queue<Person> science = new ArrayQueue<Person>(n);
-        Queue<Person> SciFi = new ArrayQueue<Person>(n);
-        Queue<Person> history = new ArrayQueue<Person>(n);
+        Queue<Person> science = new ArrayQueue<>(n);
+        Queue<Person> SciFi = new ArrayQueue<>(n);
+        Queue<Person> history = new ArrayQueue<>(n);
         ArrayList<String> done = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             String name = scanner.nextLine();

@@ -79,21 +79,21 @@ import java.util.*;
 
 import DataStructures.LinkedQueue;
 
-class Student {
-    String name;
-    int submitDocuments;
-    int index;
-    int receiveDocuments;
-
-    public Student(String name, int submitDocuments, int index, int receiveDocuments) {
-        this.name = name;
-        this.submitDocuments = submitDocuments;
-        this.index = index;
-        this.receiveDocuments = receiveDocuments;
-    }
-}
-
 public class StudentAdministrationParallel {
+    static class Student {
+        String name;
+        int submitDocuments;
+        int index;
+        int receiveDocuments;
+
+        public Student(String name, int submitDocuments, int index, int receiveDocuments) {
+            this.name = name;
+            this.submitDocuments = submitDocuments;
+            this.index = index;
+            this.receiveDocuments = receiveDocuments;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();

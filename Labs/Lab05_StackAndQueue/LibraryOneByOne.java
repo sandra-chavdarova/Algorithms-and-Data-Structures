@@ -75,21 +75,21 @@ import java.util.*;
 
 import DataStructures.LinkedQueue;
 
-class Student {
-    String name;
-    int science;
-    int scifi;
-    int history;
-
-    public Student(String name, int science, int scifi, int history) {
-        this.name = name;
-        this.science = science;
-        this.scifi = scifi;
-        this.history = history;
-    }
-}
-
 public class LibraryOneByOne {
+    static class Student {
+        String name;
+        int science;
+        int scifi;
+        int history;
+
+        public Student(String name, int science, int scifi, int history) {
+            this.name = name;
+            this.science = science;
+            this.scifi = scifi;
+            this.history = history;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         LinkedQueue<Student> science = new LinkedQueue<>();
