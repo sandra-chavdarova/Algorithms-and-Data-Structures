@@ -1,5 +1,5 @@
-# Algorithms and Data Structures
-This repository contains solved laboratory exercises and exam exercises from the course Algorithms and Data Structures.
+# Algorithms and Data Structures 💻
+This repository contains solved laboratory exercises and exam exercises from the course Algorithms and Data Structures. The exercises are solved using Java.
 It also contains solved exercises from Leetcode.
 
 # Contents
